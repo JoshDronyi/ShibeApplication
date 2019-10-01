@@ -2,9 +2,6 @@ package com.example.shibeapplication.retrofit;
 
 import com.example.shibeapplication.Utils.Constants;
 
-import java.util.List;
-
-import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
