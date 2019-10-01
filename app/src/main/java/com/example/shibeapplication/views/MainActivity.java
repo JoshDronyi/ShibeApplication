@@ -67,6 +67,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        //TODO This is where you should switch the recycler view's manager from linear to grid or in grid from 1 col to 4 and back.
+        int spanCount = manager.getSpanCount();
+        if (spanCount == 1){
+            manager.setSpanCount(4);
+        }else if(spanCount == 4){
+            manager.setSpanCount(1);
+        }
     }
 }

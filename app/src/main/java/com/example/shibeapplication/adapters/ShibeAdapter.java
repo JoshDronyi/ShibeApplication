@@ -1,10 +1,12 @@
 package com.example.shibeapplication.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +39,8 @@ public class ShibeAdapter extends RecyclerView.Adapter<ShibeAdapter.ShibeViewHol
         //TOdo bind the image views to the data received from the list.
 
         String imageString = shibeURLs.get(position);
+        String imagePosition = String.valueOf(position);
+        holder.shibeImage.setTag("Image position in array was :" + imagePosition);
 
         Picasso.get()
                 .load(imageString)
@@ -64,7 +68,8 @@ public class ShibeAdapter extends RecyclerView.Adapter<ShibeAdapter.ShibeViewHol
 
         @Override
         public void onClick(View view) {
-            //TODO This is where you should make the position of the image show up
+            Toast.makeText(context, view.getTag().toString(), Toast.LENGTH_SHORT).show();
+            Log.e("POSITION OF IMAGE", view.getTag().toString());
         }
     }
 }
