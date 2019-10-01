@@ -14,13 +14,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import butterknife.BindView;
-
 public class ShibeAdapter extends RecyclerView.Adapter<ShibeAdapter.ShibeViewHolder> {
     private Context context;
     private List<String> shibeURLs;
 
-    public ShibeAdapter(List<String> urls){
+    public ShibeAdapter(List<String> urls) {
         shibeURLs = urls;
     }
 
@@ -30,7 +28,7 @@ public class ShibeAdapter extends RecyclerView.Adapter<ShibeAdapter.ShibeViewHol
         context = parent.getContext();
 
         View theView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.shibe_item,parent,false);
+                .inflate(R.layout.shibe_item, parent, false);
         return new ShibeViewHolder(theView);
     }
 
@@ -53,11 +51,13 @@ public class ShibeAdapter extends RecyclerView.Adapter<ShibeAdapter.ShibeViewHol
         return shibeURLs.size();
     }
 
-    public class ShibeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ShibeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        @BindView(R.id.shibeImage) ImageView shibeImage;
+        ImageView shibeImage;
+
         public ShibeViewHolder(@NonNull View itemView) {
             super(itemView);
+            shibeImage = itemView.findViewById(R.id.rv_shibeImage);
             shibeImage.setOnClickListener(this);
 
         }
