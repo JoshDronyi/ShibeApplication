@@ -1,12 +1,15 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin:  'kotlin-kapt'
+apply plugin:  'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 31
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.shibeapplication"
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdkVersion 26
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -17,6 +20,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures{
+        viewBinding true
+    }
+
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -37,15 +46,20 @@ dependencies {
     //Gson
     implementation 'com.google.code.gson:gson:2.8.5'
 
-    //ButterKnife
-    implementation 'com.jakewharton:butterknife:10.2.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
-
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //Hilt
+    implementation "com.google.dagger:hilt-android:2.38.1"
+    kapt "com.google.dagger:hilt-compiler:2.38.1"
 
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
